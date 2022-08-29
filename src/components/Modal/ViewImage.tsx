@@ -30,20 +30,14 @@ export function ModalViewImage({
       isCentered
     >
       <ModalOverlay />
-      <ModalContent>
+      <ModalContent bg="pGray.800">
         <ModalBody align="center" justify="center">
-          {/* <Flex
-            
-            // backgroundImage="https://media.moneytimes.com.br/uploads/2021/12/shiba-inu2.jpg"
-            backgroundImage="https://media.moneytimes.com.br/uploads/2021/12/shiba-inu2.jpg"
-          /> */}
-
           <Image
             src={imgUrl}
             maxW="900px"
             maxH="600px"
-            w="auto"
-            h="auto"
+            w="100%"
+            h="100%"
             objectFit="contain"
             mt="5"
           />

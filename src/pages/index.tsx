@@ -85,8 +85,8 @@ export default function Home(): JSX.Element {
 
         {/* TODO RENDER LOAD MORE BUTTON IF DATA HAS NEXT PAGE */}
         {hasNextPage && (
-          <Button onClick={() => fetchNextPage()} width="140px">
-            {isFetchingNextPage ? <Spinner size="sm" /> : 'Carregar mais'}
+          <Button onClick={() => fetchNextPage()} width="140px" mt="40px">
+            {isFetchingNextPage ? 'Carregando...' : 'Carregar mais'}
           </Button>
         )}
       </Box>
