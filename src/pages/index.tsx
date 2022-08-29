@@ -1,4 +1,4 @@
-import { Button, Box, Spinner } from '@chakra-ui/react';
+import { Button, Box } from '@chakra-ui/react';
 import { useMemo } from 'react';
 import { useInfiniteQuery } from 'react-query';
 
@@ -50,6 +50,7 @@ export default function Home(): JSX.Element {
     // TODO GET AND RETURN NEXT PAGE PARAM
     {
       getNextPageParam: lastPage => (lastPage.after ? lastPage.after : null),
+      staleTime: 1000 * 60 * 5, // 5 minutes
     }
   );
 
@@ -85,7 +86,7 @@ export default function Home(): JSX.Element {
 
         {/* TODO RENDER LOAD MORE BUTTON IF DATA HAS NEXT PAGE */}
         {hasNextPage && (
-          <Button onClick={() => fetchNextPage()} width="140px" mt="40px">
+          <Button onClick={() => fetchNextPage()} width="140px" mt="10">
             {isFetchingNextPage ? 'Carregando...' : 'Carregar mais'}
           </Button>
         )}
