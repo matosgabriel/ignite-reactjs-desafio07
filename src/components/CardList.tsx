@@ -1,5 +1,5 @@
-import { Button, SimpleGrid, useDisclosure } from '@chakra-ui/react';
-import { useCallback, useState } from 'react';
+import { SimpleGrid, useDisclosure } from '@chakra-ui/react';
+import { useState } from 'react';
 import { Card } from './Card';
 import { ModalViewImage } from './Modal/ViewImage';
 
@@ -20,16 +20,13 @@ export function CardList({ cards }: CardsProps): JSX.Element {
   const { isOpen, onClose, onOpen } = useDisclosure();
 
   // TODO SELECTED IMAGE URL STATE
-  const [selectedImageUrl, setSeletedImageUrl] = useState('');
+  const [selectedImageUrl, setSeletedImageUrl] = useState<string>(undefined);
 
   // TODO FUNCTION HANDLE VIEW IMAGE
-  const handleViewImage = useCallback(
-    (url: string) => {
-      setSeletedImageUrl(url);
-      onOpen();
-    },
-    [onOpen]
-  );
+  function handleViewImage(url: string): void {
+    setSeletedImageUrl(url);
+    onOpen();
+  }
 
   return (
     <>
