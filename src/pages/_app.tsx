@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
             <link rel="icon" href="/favicon.ico" />
           </Head>
           <Component {...pageProps} />
-          {/* <ReactQueryDevtools /> */}
+          {process.env.NODE_ENV === 'development' && <ReactQueryDevtools />}
         </>
       </QueryClientProvider>
     </ChakraProvider>
