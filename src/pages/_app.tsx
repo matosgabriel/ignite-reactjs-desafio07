@@ -1,4 +1,5 @@
 import { AppProps } from 'next/app';
+import Head from 'next/head';
 import { ChakraProvider } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -12,8 +13,11 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     <ChakraProvider resetCSS theme={theme}>
       <QueryClientProvider client={queryClient}>
         <>
+          <Head>
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
           <Component {...pageProps} />
-          <ReactQueryDevtools />
+          {/* <ReactQueryDevtools /> */}
         </>
       </QueryClientProvider>
     </ChakraProvider>
