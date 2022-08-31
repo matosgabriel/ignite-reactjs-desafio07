@@ -1,6 +1,7 @@
 import { Button, Box } from '@chakra-ui/react';
 import { useMemo } from 'react';
 import { useInfiniteQuery } from 'react-query';
+import Head from 'next/head';
 
 import { Header } from '../components/Header';
 import { CardList } from '../components/CardList';
@@ -72,6 +73,9 @@ export default function Home(): JSX.Element {
 
   return (
     <>
+      <Head>
+        <title>upfi</title>
+      </Head>
       <Header />
 
       <Box maxW={1120} px={20} mx="auto" my={20}>
