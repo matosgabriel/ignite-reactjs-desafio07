@@ -120,7 +120,9 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
           setError={setError}
           trigger={trigger}
           // TODO SEND IMAGE ERRORS
-          error={{ ...errors.image, type: undefined }}
+          error={
+            errors.image ? { ...errors.image, type: undefined } : undefined
+          }
           // TODO REGISTER IMAGE INPUT WITH VALIDATIONS
           {...register('image', formValidations.image)}
         />
@@ -128,7 +130,9 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
         <TextInput
           placeholder="Título da imagem..."
           // TODO SEND TITLE ERRORS
-          error={{ ...errors.title, type: undefined }}
+          error={
+            errors.title ? { ...errors.title, type: undefined } : undefined
+          }
           // TODO REGISTER TITLE INPUT WITH VALIDATIONS
           {...register('title', formValidations.title)}
         />
@@ -136,7 +140,11 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
         <TextInput
           placeholder="Descrição da imagem..."
           // TODO SEND DESCRIPTION ERRORS
-          error={{ ...errors.description, type: undefined }}
+          error={
+            errors.description
+              ? { ...errors.description, type: undefined }
+              : undefined
+          }
           // TODO REGISTER DESCRIPTION INPUT WITH VALIDATIONS
           {...register('description', formValidations.description)}
         />
