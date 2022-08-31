@@ -22,10 +22,6 @@ interface ImagesReponse {
 }
 
 export default function Home(): JSX.Element {
-  // function getNextPageParam(lastPageResponse: ImagesReponse): string | null {
-  //   return lastPageResponse.after;
-  // }
-
   const fetchImages = async ({ pageParam = null }): Promise<ImagesReponse> => {
     const response = await api.get('api/images', {
       params: { after: pageParam },
@@ -45,10 +41,9 @@ export default function Home(): JSX.Element {
     'images',
     // TODO AXIOS REQUEST WITH PARAM
     fetchImages,
-    // TODO GET AND RETURN NEXT PAGE PARAM
     {
+      // TODO GET AND RETURN NEXT PAGE PARAM
       getNextPageParam: lastPage => (lastPage.after ? lastPage.after : null),
-      staleTime: 1000 * 60 * 5, // 5 minutes
     }
   );
 

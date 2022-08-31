@@ -53,17 +53,15 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
   const mutation = useMutation(
     // TODO MUTATION API POST REQUEST,
     async (formData: TextFieldsData) => {
-      const response = await api.post('api/images', {
+      await api.post('api/images', {
         url: imageUrl,
         title: formData.title,
         description: formData.description,
       });
-
-      return response.data;
     },
     {
       // TODO ONSUCCESS MUTATION
-      onSuccess: () => queryClient.invalidateQueries('images'),
+      onSuccess: () => queryClient.invalidateQueries(),
     }
   );
 
@@ -102,11 +100,10 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
       });
     } finally {
       // TODO CLEAN FORM, STATES AND CLOSE MODAL
+      closeModal();
       reset();
       setImageUrl('');
       setLocalImageUrl('');
-
-      closeModal();
     }
   };
 
